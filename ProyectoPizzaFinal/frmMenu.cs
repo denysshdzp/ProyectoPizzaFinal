@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProyectoPizzaFinal
 {
@@ -45,7 +46,7 @@ namespace ProyectoPizzaFinal
         frmCancelarOrden CANCELAR = new frmCancelarOrden();
         frmPromocion promo = new frmPromocion();
         frmInforme info = new frmInforme();
-        frmAgregarMenuCombo mod = new frmAgregarMenuCombo();
+        frmAdminPizzas mod = new frmAdminPizzas();
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             Close();
@@ -114,7 +115,19 @@ namespace ProyectoPizzaFinal
 
         private void button3_Click_2(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new frmAgregarMenuCombo());
+            AbrirFormEnPanel(new frmAdminPizzas());
+        }
+
+        //METODO PARA MOSTRAR EL BOTON ADMINISTRAR
+        public void MostrarBotonAdministrar()
+        {
+            btnAdministrar.Visible = true;
+        }
+
+        private void btnAdministrar_Click(object sender, EventArgs e)
+        {
+            frmMenuAdministrador menuAdminForm = new frmMenuAdministrador();
+            menuAdminForm.Show();
         }
     }
 }
