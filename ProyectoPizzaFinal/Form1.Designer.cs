@@ -117,8 +117,10 @@
             linRecuperarContraseña.LinkColor = Color.White;
             linRecuperarContraseña.Location = new Point(511, 356);
             linRecuperarContraseña.Name = "linRecuperarContraseña";
-            linRecuperarContraseña.Size = new Size(0, 25);
+            linRecuperarContraseña.Size = new Size(172, 25);
             linRecuperarContraseña.TabIndex = 7;
+            linRecuperarContraseña.TabStop = true;
+            linRecuperarContraseña.Text = "Olvide la contraseña";
             // 
             // btnCerrar
             // 

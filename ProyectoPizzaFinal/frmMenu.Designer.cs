@@ -30,7 +30,7 @@
         {
             panel1 = new Panel();
             panel11 = new Panel();
-            btnAdministrar = new Button();
+            button3 = new Button();
             panel10 = new Panel();
             btnInforme = new Button();
             btnPromociones = new Button();
@@ -69,7 +69,7 @@
             // 
             panel1.BackColor = Color.Maroon;
             panel1.Controls.Add(panel11);
-            panel1.Controls.Add(btnAdministrar);
+            panel1.Controls.Add(button3);
             panel1.Controls.Add(panel10);
             panel1.Controls.Add(btnInforme);
             panel1.Controls.Add(btnPromociones);
@@ -101,19 +101,19 @@
             panel11.Size = new Size(10, 64);
             panel11.TabIndex = 9;
             // 
-            // btnAdministrar
+            // button3
             // 
-            btnAdministrar.FlatAppearance.BorderSize = 0;
-            btnAdministrar.FlatStyle = FlatStyle.Flat;
-            btnAdministrar.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdministrar.ForeColor = SystemColors.ButtonFace;
-            btnAdministrar.Location = new Point(9, 513);
-            btnAdministrar.Name = "btnAdministrar";
-            btnAdministrar.Size = new Size(229, 64);
-            btnAdministrar.TabIndex = 12;
-            btnAdministrar.Text = "Administrar";
-            btnAdministrar.UseVisualStyleBackColor = true;
-            btnAdministrar.Click += btnAdministrar_Click;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = SystemColors.ButtonFace;
+            button3.Location = new Point(9, 513);
+            button3.Name = "button3";
+            button3.Size = new Size(229, 64);
+            button3.TabIndex = 12;
+            button3.Text = "Modificar Menú";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click_2;
             // 
             // panel10
             // 
@@ -454,6 +454,6 @@
         private Button btnInforme;
         private Panel panel10;
         private Panel panel11;
-        private Button btnAdministrar;
+        private Button button3;
     }
 }
