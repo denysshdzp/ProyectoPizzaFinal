@@ -18,6 +18,8 @@ namespace ProyectoPizzaFinal
         public frmAdminPromociones()
         {
             InitializeComponent();
+            ActualizarDataGridView();
+            dataGridViewPromociones.SelectionChanged += dataGridViewPromociones_SelectionChanged;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -115,8 +117,8 @@ namespace ProyectoPizzaFinal
             txtDescripcion.Text = "";
             txtCodigo.Text = "";
             txtCantidad.Text = "";
-            dtFechaInicio.Value = DateTime.MinValue;
-            dtFechaFin.Value = DateTime.MinValue;
+            dtFechaInicio.Value = DateTime.Today; // Restablecer la fecha de inicio a la fecha actual
+            dtFechaFin.Value = DateTime.Today; // Restablecer la fecha de fin a la fecha actual
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -225,6 +227,36 @@ namespace ProyectoPizzaFinal
             frmMenuAdmin.Show();
             this.Close();
         }
+
+        private void dataGridViewPromociones_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewPromociones.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridViewPromociones.SelectedRows[0];
+
+                // Obtener los valores de las celdas de la fila seleccionada
+                int idPromocion = Convert.ToInt32(selectedRow.Cells["idpromocion"].Value);
+                string descripcion = Convert.ToString(selectedRow.Cells["descripcion"].Value);
+                string codigo = Convert.ToString(selectedRow.Cells["codigo"].Value);
+                int cantidad = Convert.ToInt32(selectedRow.Cells["cantidad"].Value);
+                DateTime fechaInicio = Convert.ToDateTime(selectedRow.Cells["fecha_inicio"].Value);
+                DateTime fechaFin = Convert.ToDateTime(selectedRow.Cells["fecha_fin"].Value);
+
+                // Mostrar los valores en los controles de tu formulario
+                txtIdPromocion.Text = idPromocion.ToString();
+                txtDescripcion.Text = descripcion;
+                txtCodigo.Text = codigo;
+                txtCantidad.Text = cantidad.ToString();
+                dtFechaInicio.Value = fechaInicio;
+                dtFechaFin.Value = fechaFin;
+            }
+            else
+            {
+                // Limpiar los controles si no hay ninguna fila seleccionada
+                LimpiarCampos();
+            }
+        }
+
     }
 }
 

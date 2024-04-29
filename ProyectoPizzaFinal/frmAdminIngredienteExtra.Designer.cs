@@ -108,6 +108,7 @@
             dataGridViewIngredienteExtra.RowHeadersWidth = 62;
             dataGridViewIngredienteExtra.Size = new Size(860, 225);
             dataGridViewIngredienteExtra.TabIndex = 77;
+            dataGridViewIngredienteExtra.SelectionChanged += dataGridViewIngredienteExtra_SelectionChanged;
             // 
             // label6
             // 

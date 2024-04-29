@@ -18,6 +18,8 @@ namespace ProyectoPizzaFinal
         public frmAdminIngredienteExtra()
         {
             InitializeComponent();
+            ActualizarDataGridView();
+            dataGridViewIngredienteExtra.SelectionChanged += dataGridViewIngredienteExtra_SelectionChanged;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace ProyectoPizzaFinal
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     //METODO DE INSERTAR A LA BASE DE DATOS
-                    string query = "INSERT INTO ingredient_adicional (id, nombre, costo) " +
+                    string query = "INSERT INTO ingrediente_adicional (id, nombre, costo) " +
                                    "VALUES (@IdIngrediente, @Nombre, @Costo)";
                     //SE EJECUTA EL QUERY
                     SqlCommand command = new SqlCommand(query, connection);
@@ -113,7 +115,7 @@ namespace ProyectoPizzaFinal
 
             string nombre = txtNombre.Text;
             decimal costo;
-            if (!decimal.TryParse(txtCosto.Text, out costo))
+            if (!decimal.TryParse(txtPrecio.Text, out costo))
             {
                 MessageBox.Show("El costo del ingrediente debe ser un número decimal válido.");
                 return;
@@ -195,5 +197,17 @@ namespace ProyectoPizzaFinal
             frmMenuAdmin.Show();
             this.Close();
         }
+
+        private void dataGridViewIngredienteExtra_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewIngredienteExtra.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dataGridViewIngredienteExtra.SelectedRows[0];
+                txtIdIngrediente.Text = row.Cells["id"].Value.ToString();
+                txtNombre.Text = row.Cells["nombre"].Value.ToString();
+                txtPrecio.Text = row.Cells["costo"].Value.ToString();
+            }
+        }
+
     }
 }

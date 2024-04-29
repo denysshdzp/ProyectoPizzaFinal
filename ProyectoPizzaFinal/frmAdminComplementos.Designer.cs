@@ -108,6 +108,7 @@
             dataGridViewComplementos.RowHeadersWidth = 62;
             dataGridViewComplementos.Size = new Size(860, 225);
             dataGridViewComplementos.TabIndex = 62;
+            dataGridViewComplementos.SelectionChanged += dataGridViewComplementos_SelectionChanged;
             // 
             // label6
             // 

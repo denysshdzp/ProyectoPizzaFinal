@@ -19,6 +19,8 @@ namespace ProyectoPizzaFinal
         {
             InitializeComponent();
             cmbTamaño.Items.AddRange(new string[] { "chico", "mediano", "grande" });
+            ActualizarDataGridView();
+            dataGridViewCombos.SelectionChanged += dataGridViewCombos_SelectionChanged;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -221,6 +223,20 @@ namespace ProyectoPizzaFinal
         {
             Close();
         }
+
+        private void dataGridViewCombos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewCombos.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dataGridViewCombos.SelectedRows[0];
+                txtIdCombo.Text = row.Cells["idcombo"].Value.ToString();
+                txtNombre.Text = row.Cells["nombre"].Value.ToString();
+                txtDescripcion.Text = row.Cells["descripcion"].Value.ToString();
+                txtPrecio.Text = row.Cells["precio"].Value.ToString();
+                cmbTamaño.SelectedItem = row.Cells["tamaño"].Value.ToString();
+            }
+        }
+
     }
 }
 

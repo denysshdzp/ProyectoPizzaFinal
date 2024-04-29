@@ -20,6 +20,8 @@ namespace ProyectoPizzaFinal
         {
             InitializeComponent();
             cmbTamaño.Items.AddRange(new string[] { "individual", "mediana", "grande", "familiar" });
+            ActualizarDataGridView();
+            dataGridViewPizzas.SelectionChanged += dataGridViewPizzas_SelectionChanged;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -228,6 +230,20 @@ namespace ProyectoPizzaFinal
             frmMenuAdmin.Show();
             this.Close();
         }
+
+        private void dataGridViewPizzas_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewPizzas.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dataGridViewPizzas.SelectedRows[0];
+                txtIdPizza.Text = row.Cells["idpizza"].Value.ToString();
+                txtNombre.Text = row.Cells["nombre"].Value.ToString();
+                txtDescripcion.Text = row.Cells["descripcion"].Value.ToString();
+                txtPrecio.Text = row.Cells["precio"].Value.ToString();
+                cmbTamaño.SelectedItem = row.Cells["tamaño"].Value.ToString();
+            }
+        }
+
     }
 }
     

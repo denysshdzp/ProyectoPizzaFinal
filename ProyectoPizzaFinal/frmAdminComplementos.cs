@@ -18,6 +18,8 @@ namespace ProyectoPizzaFinal
         public frmAdminComplementos()
         {
             InitializeComponent();
+            ActualizarDataGridView();
+            dataGridViewComplementos.SelectionChanged += dataGridViewComplementos_SelectionChanged; // Suscripción al evento SelectionChanged
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -213,5 +215,18 @@ namespace ProyectoPizzaFinal
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void dataGridViewComplementos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewComplementos.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dataGridViewComplementos.SelectedRows[0];
+                txtIdComplemento.Text = row.Cells["idcomplemento"].Value.ToString();
+                txtNombre.Text = row.Cells["nombre"].Value.ToString();
+                txtDescripcion.Text = row.Cells["descripcion"].Value.ToString();
+                txtPrecio.Text = row.Cells["precio"].Value.ToString();
+            }
+        }
+
     }
 }

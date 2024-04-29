@@ -121,6 +121,7 @@
             dataGridViewCombos.RowHeadersWidth = 62;
             dataGridViewCombos.Size = new Size(860, 153);
             dataGridViewCombos.TabIndex = 47;
+            dataGridViewCombos.SelectionChanged += dataGridViewCombos_SelectionChanged;
             // 
             // label6
             // 
